@@ -305,6 +305,22 @@ main {
   letter-spacing: 0.75px;
   margin: 0;
 }
+.testimonials-container {
+  display: flex;
+}
+.testimonial {
+  width: 315px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial-author {
+  display: flex;
+  font-weight: bold;
+  gap: 0.5rem;
+}
 
 @media only screen and (max-width: 768px) {
   .app-header {

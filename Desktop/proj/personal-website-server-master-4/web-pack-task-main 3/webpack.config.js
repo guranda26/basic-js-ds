@@ -42,12 +42,29 @@ module.exports = (env, argv) => {
       },
 
       proxy: {
-        "/api": "http://localhost:3000",
+        "/subscribe": {
+          target: "http://localhost:3000",
+
+          changeOrigin: true,
+        },
+
+        "/community": {
+          target: "http://localhost:3000",
+
+          changeOrigin: true,
+        },
+
+        "/unsubscribe": {
+          target: "http://localhost:3000",
+
+          changeOrigin: true,
+        },
       },
 
       static: { directory: path.resolve(__dirname, "dist") },
       compress: true,
-      port: 9000,
+      port: 8080,
+      hot: true,
     },
     plugins: [
       new CopyPlugin({

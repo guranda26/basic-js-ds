@@ -49,32 +49,7 @@ class Section {
 
       if (isEmailValid) {
         if (submitButton.textContent === "Subscribe") {
-          localStorage.setItem("subscriptionEmail", email);
-          submitButton.textContent = "Unsubscribe";
-          inputEmail.classList.add("hide-input");
-
-          const xhr = new XMLHttpRequest();
-          xhr.open("POST", "/subscribe", true);
-          xhr.setRequestHeader("Content-Type", "application/json");
-
-          xhr.onload = function () {
-            if (xhr.status === 200) {
-              alert("You have successfully subscribed!");
-            } else if (xhr.status === 422) {
-              const responsePayload = JSON.parse(xhr.responseText);
-              alert(`Error: ${responsePayload.error}`);
-            } else {
-              alert("Failed to subscribe. Please try again later.");
-            }
-          };
-
-          xhr.onerror = function () {
-            alert("An error occurred. Please try again later.");
-          };
-
-          const data = JSON.stringify({ email });
-          xhr.send(data);
-        } else {
+        } else if (submitButton.textContent === "Unsubscribe") {
           localStorage.removeItem("subscriptionEmail");
           inputEmail.value = "";
           submitButton.textContent = "Subscribe";
@@ -114,40 +89,54 @@ class Section {
   }
 
   populateCommunitySection() {
-    fetch("http://localhost:9000/community")
+    fetch("http://localhost:3000/community")
       .then((response) => response.json())
       .then((communityData) => {
         const communitySection = document.querySelector(
           ".app-section--community"
         );
-        const communityList = document.createElement("ul");
-        communityList.className = "community-list";
+        const testimonialsContainer = communitySection.querySelector(
+          ".testimonials-container"
+        );
 
         communityData.forEach((person) => {
-          const listItem = document.createElement("li");
-          listItem.className = "community-list-item";
-
+          const testimonial = document.createElement("div");
+          testimonial.id = person.id;
+          testimonial.className = "testimonial";
           const avatar = document.createElement("img");
-          avatar.className = "avatar";
+          avatar.className = "testimonial-img";
           avatar.src = person.avatar;
           avatar.alt = `${person.firstName} ${person.lastName}`;
 
-          const name = document.createElement("h4");
-          name.className = "name";
-          name.textContent = `${person.firstName} ${person.lastName}`;
+          const text = document.createElement("p");
+          text.className = "testimonial-text";
 
-          const position = document.createElement("p");
-          position.className = "position";
+          text.textContent =
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor.";
+
+          const author = document.createElement("div");
+          author.className = "testimonial-author";
+
+          const firstName = document.createElement("div");
+          firstName.className = "testimonial-author-firstname";
+          firstName.textContent = person.firstName;
+
+          const lastName = document.createElement("div");
+          lastName.className = "testimonial-author-lastname";
+          lastName.textContent = person.lastName;
+
+          const position = document.createElement("div");
+          position.className = "testimonial-position";
           position.textContent = person.position;
 
-          listItem.appendChild(avatar);
-          listItem.appendChild(name);
-          listItem.appendChild(position);
-          communityList.appendChild(listItem);
+          author.appendChild(firstName);
+          author.appendChild(lastName);
+          testimonial.appendChild(avatar);
+          testimonial.appendChild(text);
+          testimonial.appendChild(author);
+          testimonial.appendChild(position);
+          testimonialsContainer.appendChild(testimonial);
         });
-
-        communitySection.innerHTML = "";
-        communitySection.appendChild(communityList);
       })
       .catch((error) => {
         console.error("Error fetching community data:", error);
@@ -178,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
       xhr.onload = function () {
         if (xhr.status === 200) {
           const responsePayload = JSON.parse(xhr.responseText);
-          if (responsePayload.subscribed) {
+          if (submitButton.textContent === "Subscribe") {
             localStorage.setItem("subscriptionEmail", email);
             submitButton.textContent = "Unsubscribe";
             inputEmail.classList.add("hide-input");
@@ -208,8 +197,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const inputEmail = document.getElementById("email");
   const submitButton = document.querySelector(".subscribe-button");
+  let isRequestInProgress = false;
 
-  // Event listener to the Subscribe/Unsubscribe button
+  function updateButtonStatus(isDisabled) {
+    submitButton.disabled = isDisabled;
+    if (isDisabled) {
+      submitButton.style.opacity = 0.5;
+    } else {
+      submitButton.style.opacity = 1;
+    }
+  }
+
   submitButton.addEventListener("click", handleSubscription);
 
   const savedEmail = localStorage.getItem("subscriptionEmail");
