@@ -25,9 +25,18 @@ module.exports = (env, argv) => {
             },
           },
         },
+
         {
           test: /\.css$/,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "eslint-loader",
+          options: {
+            fix: true,
+          },
         },
         {
           test: /\.(png|jpg|gif)$/i,
@@ -37,6 +46,30 @@ module.exports = (env, argv) => {
     },
 
     devServer: {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+
+      proxy: {
+        "/subscribe": {
+          target: "http://localhost:3000",
+
+          changeOrigin: true,
+        },
+
+        "/community": {
+          target: "http://localhost:3000",
+
+          changeOrigin: true,
+        },
+
+        "/unsubscribe": {
+          target: "http://localhost:3000",
+
+          changeOrigin: true,
+        },
+      },
+
       static: { directory: path.resolve(__dirname, "dist") },
       compress: true,
       port: 8080,
@@ -45,7 +78,6 @@ module.exports = (env, argv) => {
     plugins: [
       new CopyPlugin({
         patterns: [
-          // { from: "src", to: "" },
           { from: "styles/style.css", to: "styles" },
           { from: "assets/images", to: "assets/images" },
         ],
@@ -54,7 +86,6 @@ module.exports = (env, argv) => {
         template: "./src/index.html",
         inject: "body",
       }),
-      // ...
     ],
     optimization: {
       minimizer: isProduction
