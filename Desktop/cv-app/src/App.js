@@ -8,7 +8,7 @@ import { Experience } from "./components/Expertise";
 import { Portfolio } from "./components/Portfolio";
 import { Contact } from "./components/Address";
 import { Feedback } from "./components/Feedback";
-import Layout from "./components/Layout";
+// import { User, Profile, Account } from "./components/Layout";
 
 const AllComponents = () => {
   return (
@@ -32,6 +32,12 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<AllComponents />} />
+          {/* <Route path="/#about" element={<about />} /> */}
+
+          {/* <Route path="/" element={<User />}>
+            <Route path="profile" element={<Profile />} />
+            <Route path="account" element={<Account />} />
+          </Route> */}
           {/* <Route path="/" element={<AllComponents />} />
         <Route path="/inner" element={<Aboutme />} />
         <Route path="/inner" element={<Education />} />

@@ -19,7 +19,9 @@ ul {
   gap: 20px;
   background-color: #222935;
 }
-
+a {
+  /* text-decoration: none; */
+}
 ul li {
   list-style: none;
   font-size: 16px;
@@ -29,9 +31,16 @@ ul li {
 .icon {
   font-size: 15px;
   margin-right: 15px;
-  /* background-color: blue; */
-  /* color: #26c17e; */
+}
+
+.nav-link {
+  text-decoration: none;
   color: #667081;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #26c17e;
 }
 
 h1,
