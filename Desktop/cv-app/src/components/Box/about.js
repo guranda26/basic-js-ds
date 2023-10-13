@@ -19,6 +19,7 @@ const About = () => {
         ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus
         eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing
         sem neque"
+        contentClassName="about-text"
       ></Box>
     </section>
   );

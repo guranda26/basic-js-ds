@@ -25,11 +25,11 @@ import React from "react";
 //   );
 // }
 
-const Box = ({ title, content }) => {
+const Box = ({ title, content, contentClassName }) => {
   return (
     <div>
       <h2>{title}</h2>
-      <p>{content}</p>
+      <p className={contentClassName}>{content}</p>
     </div>
   );
 };
