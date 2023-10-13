@@ -137,8 +137,8 @@ const Nav = () => {
   };
 
   return (
-    <nav>
-      <ul>
+    <nav className="nav-bar">
+      <ul className="nav-ul">
         {sections &&
           sections.map((section) => (
             <li key={section.id} onClick={() => handleLinkClick(section.id)}>

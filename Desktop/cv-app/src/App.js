@@ -1,52 +1,53 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Router, Routes, Route } from "react-router-dom";
-import { Aboutme } from "./components/Box";
+import About from "./components/Box/about";
 import { Education } from "./components/Timeline";
 import Nav from "./components/Navigation";
 import { Experience } from "./components/Expertise";
 import { Portfolio } from "./components/Portfolio";
-import { Contact } from "./components/Address";
+import { Address } from "./components/Address";
 import { Feedback } from "./components/Feedback";
+import Aside from "./components/Aside";
 // import { User, Profile, Account } from "./components/Layout";
 
 const AllComponents = () => {
   return (
-    <div>
-      <Aboutme />
+    <main>
+      <About />
       <Education />
       <Experience />
       <Portfolio />
-      <Contact />
+      <Address />
       <Feedback />
-    </div>
+    </main>
   );
 };
 
 const App = () => {
   return (
     <div className="layout">
-      <aside>
+      <Aside></Aside>
+      {/* <aside>
         <Nav />
-      </aside>
-      <main>
-        <Routes>
-          <Route path="/" element={<AllComponents />} />
-          {/* <Route path="/#about" element={<about />} /> */}
+      </aside> */}
 
-          {/* <Route path="/" element={<User />}>
+      <Routes>
+        <Route path="/" element={<AllComponents />} />
+        {/* <Route path="/#about" element={<about />} /> */}
+
+        {/* <Route path="/" element={<User />}>
             <Route path="profile" element={<Profile />} />
             <Route path="account" element={<Account />} />
           </Route> */}
-          {/* <Route path="/" element={<AllComponents />} />
+        {/* <Route path="/" element={<AllComponents />} />
         <Route path="/inner" element={<Aboutme />} />
         <Route path="/inner" element={<Education />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="contact" element={<Contact />} />
         <Route path="/feedbacks" element={<Feedback />} /> */}
-        </Routes>
-      </main>
+      </Routes>
     </div>
   );
 };
