@@ -2,24 +2,27 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/Box/about";
-import { Education } from "./components/Timeline";
+import { Timeline } from "./components/Timeline";
+import eventsData from "./components/Timeline/data";
 import Nav from "./components/Navigation";
 import Expertise from "./components/Expertise";
 import { Portfolio } from "./components/Portfolio";
 import { Address } from "./components/Address";
 import { Feedback } from "./components/Feedback";
+import feedbackData from "./components/Feedback/data";
 import Aside from "./components/Aside";
 import experiences from "./components/Expertise/experience";
-
 const AllComponents = () => {
   return (
     <main>
-      <About />
-      <Education />
-      <Expertise data={experiences} />
-      <Portfolio />
-      <Address />
-      <Feedback />
+      <div className="main-container">
+        <About />
+        <Timeline data={eventsData} />
+        <Expertise data={experiences} />
+        <Portfolio />
+        <Address />
+        <Feedback data={feedbackData} />
+      </div>
     </main>
   );
 };

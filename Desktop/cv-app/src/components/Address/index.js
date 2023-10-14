@@ -1,5 +1,4 @@
 import React from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { ContactItem, ContactInfo } from "./contactLogo";
 import twitterImg from "../../assets/images/icons/twitter-icon.png";

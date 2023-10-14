@@ -1,6 +1,6 @@
 import React from "react";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { ContactInfo } from "./contactLogo"; // Import your ContactItem and ContactInfo components
+import { ContactInfo } from "./contactLogo";
 
 const choosePlatform = ({ platform, link }) => {
   const confirmationMessage = `Want to open ${platform}?`;
