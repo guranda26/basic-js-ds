@@ -1,20 +1,18 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const openPhoneOrSkype = (platform, link) => {
   if (
     platform.toLowerCase() === "skype" ||
     platform.toLowerCase() === "phone"
   ) {
-    window.open(link, "_blank"); // Open Skype or phone link in a new tab
+    window.open(link, "_blank");
   } else if (
     platform.toLowerCase() === "facebook" ||
     platform.toLowerCase() === "twitter"
   ) {
-    window.open(link, "_blank"); // Open Facebook or Twitter link in a new tab
+    window.open(link, "_blank");
   }
 };
 
@@ -52,7 +50,6 @@ const ContactInfo = ({ icon, data, type }) => {
   let content;
 
   if (type === "email") {
-    // For email
     content = (
       <Link
         to={`mailto:${data}`}
@@ -68,7 +65,6 @@ const ContactInfo = ({ icon, data, type }) => {
       </span>
     );
   } else {
-    // Handle other types if necessary
     content = null;
   }
 

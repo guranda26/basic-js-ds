@@ -1,22 +1,22 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./components/Box/about";
 import { Education } from "./components/Timeline";
 import Nav from "./components/Navigation";
-import { Experience } from "./components/Expertise";
+import Expertise from "./components/Expertise";
 import { Portfolio } from "./components/Portfolio";
 import { Address } from "./components/Address";
 import { Feedback } from "./components/Feedback";
 import Aside from "./components/Aside";
-// import { User, Profile, Account } from "./components/Layout";
+import experiences from "./components/Expertise/experience";
 
 const AllComponents = () => {
   return (
     <main>
       <About />
       <Education />
-      <Experience />
+      <Expertise data={experiences} />
       <Portfolio />
       <Address />
       <Feedback />

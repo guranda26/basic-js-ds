@@ -144,6 +144,41 @@ main {
 .about-text {
   line-height: 21px;
 }
+
+/* 
+experience section
+*/
+
+.experience-item {
+  font-family: "Opeb Sans";
+  font-size: 16px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.info {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.company {
+  font-weight: 700;
+}
+
+.description {
+  grid-column: 2;
+  margin-top: 5px;
+}
+.job {
+  font-weight: 700;
+}
+
+.date {
+  position: absolute;
+  top: 25px;
+  left: 0;
+}
 @media only screen and (min-width: 600px) {
   nav {
     width: 250px;
