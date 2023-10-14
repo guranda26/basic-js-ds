@@ -53,16 +53,16 @@ const ContactInfo = ({ icon, data, type }) => {
     content = (
       <Link
         to={`mailto:${data}`}
-        className="contact-list_email contact-list_item"
+        className="contact-list_email contact-list_item email"
       >
         <FontAwesomeIcon icon={icon} className="contact-icon" /> {data}
       </Link>
     );
   } else if (type === "phone") {
     content = (
-      <span className="contact-list_item">
+      <p className="contact-list_item">
         <FontAwesomeIcon icon={icon} className="contact-icon" /> {data}
-      </span>
+      </p>
     );
   } else {
     content = null;
