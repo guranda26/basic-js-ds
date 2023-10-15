@@ -3,7 +3,7 @@ import React from "react";
 const Timeline = ({ data }) => {
   return (
     <section id="education">
-      <h1>Education</h1>
+      <h>Education</h>
       <div className="timeline">
         <div className="timeline-container">
           {data.map((event, index) => (

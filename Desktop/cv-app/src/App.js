@@ -6,7 +6,7 @@ import { Timeline } from "./components/Timeline";
 import eventsData from "./components/Timeline/data";
 import Nav from "./components/Navigation";
 import Expertise from "./components/Expertise";
-import { Portfolio } from "./components/Portfolio";
+import Portfolio from "./components/Portfolio";
 import { Address } from "./components/Address";
 import { Feedback } from "./components/Feedback";
 import feedbackData from "./components/Feedback/data";
