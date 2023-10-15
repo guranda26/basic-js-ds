@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Isotope from "isotope-layout";
 import secondCard from "../../assets/images/portfolio-card2.png";
 import card from "../../assets/images/portfolio-card.png";
-// import "../../../index.css";
 import imagesLoaded from "imagesloaded";
 
 import PortfolioInfo from "./data";
@@ -28,10 +27,6 @@ const Portfolio = () => {
       iso.destroy();
     };
   }, [filter]);
-
-  // const handleFilterChange = (newFilter) => {
-  //   setFilter(newFilter);
-  // };
 
   const handleFilterChange = (newFilter, button) => {
     if (filter === newFilter) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { ContactItem, ContactInfo } from "./contactLogo";
 import twitterImg from "../../assets/images/icons/twitter-icon.png";
 import facebookImg from "../../assets/images/icons/facebook-icon.png";

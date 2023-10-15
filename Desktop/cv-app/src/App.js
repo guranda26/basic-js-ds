@@ -11,7 +11,7 @@ import { Address } from "./components/Address";
 import { Feedback } from "./components/Feedback";
 import feedbackData from "./components/Feedback/data";
 import Aside from "./components/Aside";
-import experiences from "./components/Expertise/experience";
+import experiences from "./components/Expertise/data";
 const AllComponents = () => {
   return (
     <main>

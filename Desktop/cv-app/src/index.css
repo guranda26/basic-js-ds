@@ -24,6 +24,7 @@ code {
 .aside {
   background-color: #222935;
   max-width: 250px;
+  position: relative;
 }
 
 h1,
@@ -343,6 +344,38 @@ Experience section
 .citeurl-link {
   text-decoration: none;
   color: #26c17e;
+}
+
+/*Button*/
+
+.button {
+  /* width: 127px; */
+  background-color: #222935;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  /* padding: 10px 20px; */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* height: 40px; */
+  padding: 10px 20px;
+}
+
+.button:hover {
+  background-color: #26c17e;
+}
+
+.button .button-icon {
+  margin-right: 5px;
+  color: #ffffff;
+}
+
+.aside .button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 25%;
+  margin-bottom: 5px;
 }
 
 @media only screen and (min-width: 600px) {
