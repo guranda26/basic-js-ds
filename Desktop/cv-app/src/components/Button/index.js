@@ -1,11 +1,11 @@
 import React from "react";
 import "../../index.css";
 
-const Button = ({ icon, text, onClick }) => {
+const Button = ({ icon, text, onClick, id }) => {
   return (
-    <button className="button" onClick={onClick}>
-      {icon && <span className="button-icon">{icon}</span>}
-      <span className="button-text">{text}</span>
+    <button className="button" id={id} onClick={onClick}>
+      {icon && <span className="button__icon">{icon}</span>}
+      <span className="button__text">{text}</span>
     </button>
   );
 };

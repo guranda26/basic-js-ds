@@ -19,8 +19,8 @@ const About = () => {
         ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus
         eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing
         sem neque"
-        contentClassName="about-text"
-        headingClassname="about-heading"
+        contentClassName="about__text"
+        headingClassname="about__heading"
       ></Box>
     </section>
   );

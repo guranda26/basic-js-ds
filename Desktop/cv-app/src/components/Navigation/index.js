@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+
 // import { HashLink } from "react-router-hash-link";
 import {
   faUser,
@@ -11,75 +12,6 @@ import {
   faComment,
   faGem,
 } from "@fortawesome/free-solid-svg-icons";
-
-// const Nav = () => {
-//   const scrollToElement = (elementId) => {
-//     smoothScrollToElement(elementId);
-//   };
-
-//   return (
-//     <nav>
-//       <ul>
-//         <li onClick={() => scrollToElement("about")}>
-//           <HashLink to={"/#about"}>
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faUser} />
-//             </span>
-//             About me
-//           </HashLink>
-//         </li>
-//         <li onClick={() => scrollToElement("education")}>
-//           <HashLink to={"/#education"}>
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faGraduationCap} />
-//             </span>
-//             Education
-//           </HashLink>
-//         </li>
-//         <li onClick={() => scrollToElement("experience")}>
-//           <HashLink to={"/#experience"}>
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faPen} />
-//             </span>
-//             Experience
-//           </HashLink>
-//         </li>
-//         <li onClick={() => scrollToElement("skills")}>
-//           <HashLink smooth to={"/#skills"}>
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faGem} />
-//             </span>
-//             Skills
-//           </HashLink>
-//         </li>
-//         <li onClick={() => scrollToElement("portfolio")}>
-//           <HashLink smooth to={"/#portfolio"}>
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faSuitcase} />
-//             </span>
-//             Portfolio
-//           </HashLink>
-//         </li>
-//         <li onClick={() => scrollToElement("contact")}>
-//           <HashLink smooth to="/#contact">
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faLocationArrow} />
-//             </span>
-//             Contact
-//           </HashLink>
-//         </li>
-//         <li onClick={() => scrollToElement("feedback")}>
-//           <HashLink smooth to="/#feedback">
-//             <span className="icon">
-//               <FontAwesomeIcon icon={faComment} />
-//             </span>
-//             Feedback
-//           </HashLink>
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-// };
 
 const sections = [
   {
@@ -93,7 +25,7 @@ const sections = [
     icon: faGraduationCap,
   },
   {
-    id: "experience",
+    id: "expertise",
     label: "Experience",
     icon: faPen,
   },
@@ -118,6 +50,7 @@ const sections = [
     icon: faComment,
   },
 ];
+
 const Nav = () => {
   const [activeLink, setActiveLink] = useState(null);
 
@@ -138,24 +71,28 @@ const Nav = () => {
 
   return (
     <nav className="nav-bar">
-      <ul className="nav-ul">
+      <ul className="nav-bar__list">
         {sections &&
           sections.map((section) => (
-            <li key={section.id} onClick={() => handleLinkClick(section.id)}>
+            <li
+              key={section.id}
+              onClick={() => handleLinkClick(section.id)}
+              className="nav-bar__item"
+            >
               <NavLink
                 smooth
-                to={`/#${section.id}`}
+                to={`/inner#${section.id}`}
                 style={{
                   textDecoration: "none",
                   color: activeLink === section.id ? "#26c17e" : "",
                   transition: "color 0.3s ease",
                 }}
-                className="nav-link"
+                className="nav-bar__link"
               >
-                <span className="icon">
+                <span className="nav-bar__icon icon">
                   <FontAwesomeIcon icon={section.icon} />
                 </span>
-                {section.label}
+                <span className="nav-bar__label">{section.label}</span>
               </NavLink>
             </li>
           ))}

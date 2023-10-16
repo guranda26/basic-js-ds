@@ -73,37 +73,43 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio">
-      <h2>Portfolio</h2>
-      <div className="portfolio-container">
-        <div className="portfolio-filter">
+      <h2 className="portfolio__title">Portfolio</h2>
+      <div className="portfolio__container">
+        <div className="portfolio__filter">
           <button
             onClick={() => handleFilterChange("*")}
-            className={filter === "*" ? "active" : ""}
+            className={`portfolio__filter-button ${
+              filter === "*" ? "active" : ""
+            }`}
           >
             All
           </button>
-          <span>/ </span>
+          <span className="portfolio__filter-divider">/ </span>
           <button
             onClick={() => handleFilterChange(".ui")}
-            className={filter === ".ui" ? "active" : ""}
+            className={`portfolio__filter-button ${
+              filter === ".ui" ? "active" : ""
+            }`}
           >
             UI
           </button>
-          <span>/ </span>
+          <span className="portfolio__filter-divider">/ </span>
           <button
             onClick={() => handleFilterChange(".code")}
-            className={filter === ".code" ? "active" : ""}
+            className={`portfolio__filter-button ${
+              filter === ".code" ? "active" : ""
+            }`}
           >
             Code
           </button>
         </div>
-        <div className="portfolio-items" ref={portfolioRef}>
+        <div className="portfolio__items" ref={portfolioRef}>
           {portfolioItems.map((item) => (
             <div key={item.id} className={`portfolio-item ${item.category}`}>
               <img
                 src={item.imageUrl}
                 alt={item.title}
-                className="portfolio-img"
+                className="portfolio-item__image"
               />
               <PortfolioInfo
                 title={item.title}
