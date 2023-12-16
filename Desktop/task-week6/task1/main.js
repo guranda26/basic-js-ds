@@ -1,6 +1,7 @@
 const modal = document.querySelector(".modal");
 
-console.log(modal);
+const submitBtn = modal.querySelector(".inner-btn");
+const input = document.querySelector("input[name='name']");
 
 const button = document.createElement("button");
 button.type = "button";
@@ -14,6 +15,7 @@ document.body.append(section);
 section.append(button, modal);
 
 console.log(button);
+
 button.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -28,6 +30,20 @@ button.addEventListener("click", (e) => {
     button.classList.add("hide-modal");
     section.style.backgroundColor = "black";
   }
+  e.stopPropagation();
 });
 
-const hide = document.querySelector(".hide-modal");
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (input.value === "") {
+    alert("Enter your name");
+    return;
+  } else {
+    alert(`Thank you ${input.value}. We have received your data`);
+    console.log(input.value);
+  }
+  input.value = "";
+});
+
+console.log(section);
